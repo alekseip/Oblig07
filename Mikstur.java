@@ -1,5 +1,5 @@
 
 public interface Mikstur {
-    public double getMixtur();
+    public int getMixtur();
 
 }
