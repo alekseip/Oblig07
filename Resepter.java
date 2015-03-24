@@ -6,6 +6,7 @@ public class Resepter {
     private Personer pasient;
     private int pris;
     private int reit;
+    private String farge="hvit";
 
     public Resepter(Legemiddler legemiddel, Leger lege, Personer pasient, int pris, int reit, int reseptnummer){
         this.legemiddel=legemiddel;
@@ -22,6 +23,11 @@ public class Resepter {
     public Personer getPasient(){return pasient;}
     public int getPris(){return pris;}
     public int getReit(){return reit;}
+    public void setReit (int i){reit=i;}
+    public String getFarge(){return farge;}
+    public void printResept (String b) {
+        System.out.println(reseptnummer+ ", "+ b +", "+ pasient.getUniknummer()+", " + lege.getNavnLege()+", " + legemiddel.getUniknum()+", " + reit);
+    }
 
 }
 // Valgte aa lage BlaaResept som en subclasse for Resepter, resepter i dette tilfelle vill vaere hviteresepter, men kan
@@ -29,6 +35,7 @@ public class Resepter {
 class BlaaResept extends Resepter{
         private int pris;
         private int reseptnummer;
+        private String farge = "blaa";
     public BlaaResept(Legemiddler legemiddel, Leger lege, Personer pasient, int pris, int reit, int reseptnummer){
         super(legemiddel,lege,pasient,pris,reit,reseptnummer);
         this.pris=pris;
@@ -36,4 +43,5 @@ class BlaaResept extends Resepter{
         this.reseptnummer = reseptnummer;
     }
     public int getPris(){return pris;}// hvis det ikke fungerer sett this.pris
+    public String getFargeBlaa (){return farge; }
 }
